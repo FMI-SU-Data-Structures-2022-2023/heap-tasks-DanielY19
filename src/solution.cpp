@@ -1,7 +1,7 @@
 #include "solution.h"
 
 void Trie::Node::insert(const char *word, Node *traverse) {
-    size_t index = *word - 'a';
+    std::size_t index = *word - 'a';
 
     if (!traverse->next[index])
         traverse->next[index] = new Node;
@@ -28,7 +28,7 @@ bool Trie::Node::search(const char *word, Node *traverse) {
         else return false;
     }
 
-    size_t index = *word - 'a';
+    std::size_t index = *word - 'a';
 
     if (!traverse->next[index])
         return false;
@@ -44,7 +44,7 @@ bool Trie::search(const char *word) {
 }
 
 void Trie::Node::destroy(Node *traverse) {
-    for (size_t i = 0; i < Trie::Node::MAX_ALPHABET; i++) {
+    for (std::size_t i = 0; i < Trie::Node::MAX_ALPHABET; i++) {
         if (traverse->next[i])
             destroy(traverse->next[i]);
     }
@@ -56,6 +56,6 @@ Trie::~Trie() {
 }
 
 void Trie::Node::null() {
-    for (size_t i = 0; i < Trie::Node::MAX_ALPHABET; i++)
+    for (std::size_t i = 0; i < Trie::Node::MAX_ALPHABET; i++)
         this->next[i] = nullptr;
 }

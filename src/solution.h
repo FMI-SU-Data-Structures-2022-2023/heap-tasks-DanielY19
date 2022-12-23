@@ -1,9 +1,11 @@
 #ifndef WEEK7_TREE_H
 
+#include <cstddef>
+
 class Trie {
 private:
     struct Node {
-        const static size_t MAX_ALPHABET = 26;
+        const static std::size_t MAX_ALPHABET = 26;
 
         bool isWord;
         Node *next[26];
